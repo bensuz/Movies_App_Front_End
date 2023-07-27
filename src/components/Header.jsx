@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
+import "./header.css";
 
 const Header = () => {
     return (
-        <nav>
+        <nav className="bg-primary">
             <ul>
                 <li>
                     <NavLink exact to="/">
