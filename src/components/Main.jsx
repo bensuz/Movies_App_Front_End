@@ -6,7 +6,7 @@ import UpdateMovie from "./UpdateMovie";
 
 const Main = () => {
     return (
-        <main>
+        <main className="h-4/5">
             <Routes>
                 <Route path="/" element={<Movies />} />
                 <Route path="/movies/new" element={<NewMovie />} />

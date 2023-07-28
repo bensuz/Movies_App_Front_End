@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -32,43 +33,45 @@ const UpdateMovie = () => {
     };
 
     return (
-        <div>
-            {" "}
-            {error && <p>{error}</p>}
-            <h2>Update Movie</h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Title</label>
-                <input
-                    type="text"
-                    name="title"
-                    value={movie?.title || ""}
-                    onChange={handleChange}
-                    required
-                />
-                <label htmlFor="director">Director</label>
-                <input
-                    type="text"
-                    name="director"
-                    value={movie?.author || ""}
-                    onChange={handleChange}
-                />
-                <label htmlFor="year">Year</label>
-                <input
-                    type="text"
-                    name="year"
-                    value={movie?.year || ""}
-                    onChange={handleChange}
-                />
-                <label htmlFor="rating">Rating</label>
-                <input
-                    type="text"
-                    name="rating"
-                    value={movie?.rating || ""}
-                    onChange={handleChange}
-                />
-                <button>Update Movie</button>
-            </form>
-        </div>
+        <>
+            <div className="h-96">
+                {" "}
+                {error && <p>{error}</p>}
+                <h2>Update Movie</h2>
+                <form onSubmit={handleSubmit} className="bg-red-400">
+                    <label htmlFor="title">Title</label>
+                    <input
+                        type="text"
+                        name="title"
+                        value={movie?.title || ""}
+                        onChange={handleChange}
+                        required
+                    />
+                    <label htmlFor="director">Director</label>
+                    <input
+                        type="text"
+                        name="director"
+                        value={movie?.author || ""}
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="year">Year</label>
+                    <input
+                        type="text"
+                        name="year"
+                        value={movie?.year || ""}
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="rating">Rating</label>
+                    <input
+                        type="text"
+                        name="rating"
+                        value={movie?.rating || ""}
+                        onChange={handleChange}
+                    />
+                    <button>Update Movie</button>
+                </form>
+            </div>
+        </>
     );
 };
 
