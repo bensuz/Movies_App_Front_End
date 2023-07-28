@@ -38,11 +38,11 @@ const Discover = () => {
         //     ))}
         // </div>
 
-        <div className="card w-full  shadow-xl text-white flex flex-wrap justify-center items-center my-3 gap-8  ">
+        <div className="card w-full shadow-xl text-white flex flex-wrap justify-center items-center my-3 gap-8 ">
             {publicMovies.map((movie) => (
                 <div
                     key={movie.id}
-                    className="w-64 bg-gray-100  rounded-xl overflow-hidden hover:scale-105 transition-all duration-200"
+                    className="w-64 bg-gray-100 rounded-xl overflow-hidden hover:scale-105 transition-all duration-200"
                 >
                     <figure>
                         <img

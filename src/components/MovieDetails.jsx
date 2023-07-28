@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import RegularHeader from "./RegularHeader";
-import { Button } from "@mui/material";
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -19,7 +17,7 @@ const MovieDetails = () => {
 
     const handleDelete = () => {
         axios
-            .delete(`${import.meta.env.VITE_SERVER_BASE_URL}/api/books/${id}`)
+            .delete(`${import.meta.env.VITE_SERVER_BASE_URL}/api/movies/${id}`)
             // eslint-disable-next-line no-unused-vars
             .then((res) => navigate("/"))
             .catch((e) => console.log(e));
@@ -27,19 +25,43 @@ const MovieDetails = () => {
 
     return (
         <>
-            <RegularHeader />
-            <div>
+            <div className="py-[600px] h-96 flex flex-col justify-center items-center">
                 {error && <p>{error}</p>}
                 {movie && (
                     <>
-                        <div>
-                            <h2>{movie.title}</h2>
-                            <p>Director: {movie.director}</p>
-                            <p>Year: {movie.year}</p>
-                            <p>Rating: {movie.rating}</p>
+                        <div className="flex flex-col justify-center items-start ">
+                            <div className="flex flex-col justify-center items-center">
+                                <h2 className="text-6xl py-5 font-bold">
+                                    {movie.title}
+                                </h2>
+                                <img src={movie.poster} alt="" width={400} />
+                            </div>
+                            <div>
+                                <p className="text-xl font-bold p-2">
+                                    Director: {movie.director}
+                                </p>
+                                <p className="text-xl font-bold p-2">
+                                    Year: {movie.year}
+                                </p>
+                                <p className="text-xl font-bold p-2">
+                                    Rating: {movie.rating}
+                                </p>
+                            </div>
                         </div>
-                        <Link to={`/movies/${id}/update`}>Update Movie</Link>
-                        <Button onClick={handleDelete}>Delete Movie</Button>
+                        <div className="my-5 flex gap-8 text-white font-bold">
+                            <Link
+                                to={`/movies/${id}/update`}
+                                className=" border rounded-xl bg-mb-quartery  p-2"
+                            >
+                                Update Movie
+                            </Link>
+                            <button
+                                onClick={handleDelete}
+                                className="border rounded-xl bg-slate-900 text-white p-2"
+                            >
+                                Delete Movie
+                            </button>
+                        </div>
                     </>
                 )}
             </div>

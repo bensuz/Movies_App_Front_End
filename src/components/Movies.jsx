@@ -4,9 +4,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./movies.css";
 import "swiper/css";
@@ -78,10 +76,10 @@ const Movies = () => {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Button size="small">
-                                            <FavoriteBorderIcon />
-                                        </Button>
-                                        <Link to={`/movies/${movie.id}`}>
+                                        <Link
+                                            to={`/movies/${movie.id}`}
+                                            className=" px-3 text-md text-mb-secondary hover:text-mb-quartery"
+                                        >
                                             See Details
                                         </Link>
                                     </CardActions>
