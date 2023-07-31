@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -19,7 +20,26 @@ const MovieDetails = () => {
         axios
             .delete(`${import.meta.env.VITE_SERVER_BASE_URL}/api/movies/${id}`)
             // eslint-disable-next-line no-unused-vars
-            .then((res) => navigate("/"))
+            .then((res) => {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            "Deleted!",
+                            "Movie has been deleted from My List.",
+                            "success"
+                        );
+                        navigate("/");
+                    }
+                });
+            })
             .catch((e) => console.log(e));
     };
 

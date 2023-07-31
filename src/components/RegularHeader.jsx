@@ -24,17 +24,17 @@ const RegularHeader = () => {
                 </Link>
                 <ul className="text-mb-quartery flex gap-10 text-xl font-bold p-5 justify-center items-center">
                     <li>
-                        <NavLink exact to="/" ClassName="nav-link">
+                        <NavLink to="/" className="nav-link">
                             HOME
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/about" ClassName="nav-link">
+                        <NavLink to="/about" className="nav-link">
                             ABOUT
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contact" ClassName="nav-link">
+                        <NavLink to="/contact" className="nav-link">
                             MY LIST
                         </NavLink>
                     </li>

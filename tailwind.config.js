@@ -16,6 +16,9 @@ export default {
             height: {
                 144: "36rem",
             },
+            backgroundImage: {
+                barbie: "url('.src/assets/barbie.jpeg')",
+            },
         },
     },
     plugins: [],

@@ -31,6 +31,7 @@ const Movies = () => {
     return (
         <>
             <Hero />
+            {/* My List */}
             <div className="bg-slate-800 p-10">
                 <h2 className="text-white text-2xl font-bold ">MY LIST</h2>
                 <Swiper
@@ -88,6 +89,7 @@ const Movies = () => {
                         ))}
                 </Swiper>
             </div>
+            {/* Discover */}
             <div className="p-10 bg-mb-tertiary ">
                 <h2 className="text-white text-2xl font-bold ">DISCOVER</h2>
                 <Discover />

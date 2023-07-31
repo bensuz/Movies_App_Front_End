@@ -1,8 +1,7 @@
+/* eslint-disable react/jsx-key */
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const Discover = () => {
     const [publicMovies, setPublicMovies] = useState([]);
@@ -24,42 +23,51 @@ const Discover = () => {
     }, []);
 
     return (
-        // <div className="flex justify-center items-center gap-5 text-white ">
-        //     {publicMovies.map((movie) => (
-        //         <div key={movie.id}>
-        //             <h2>{movie.title}</h2>
-        //             <img
-        //                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-        //                 alt={movie.title}
-        //                 height={50}
-        //             />
-        //             {/* Display other movie details as needed */}
-        //         </div>
-        //     ))}
-        // </div>
-
         <div className="card w-full shadow-xl text-white flex flex-wrap justify-center items-center my-3 gap-8 ">
             {publicMovies.map((movie) => (
                 <div
                     key={movie.id}
-                    className="w-64 bg-gray-100 rounded-xl overflow-hidden hover:scale-105 transition-all duration-200"
+                    className="w-64 h-[430px] bg-gray-100 rounded-xl overflow-hidden hover:scale-105 transition-all duration-200"
                 >
-                    <figure>
-                        <img
-                            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                            alt={movie.title}
-                        />
-                    </figure>
-                    <div className="card-body px-3 text-black ">
-                        <h2 className="card-title">{movie.title}</h2>
-                        <p>{movie.vote_average}</p>
-                        <div className="card-actions justify-end">
-                            <Button size="small">
-                                <FavoriteBorderIcon title="Add to List" />
-                            </Button>
-                            <Link to={`/movies/${movie.id}`}>See Details</Link>
+                    <Link to={`/movies/discover/${movie.id}`}>
+                        <figure className="h-2/3 overflow-hidden">
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                alt={movie.title}
+                            />
+                        </figure>
+                        <div className="card-body h-1/3 px-3 text-black flex flex-col justify-between items-start">
+                            <h2 className="card-title pt-2 text-lg font-medium text-slate-700 h-2/4">
+                                {movie.title}
+                            </h2>
+                            <div className="h-2/4">
+                                <div>
+                                    <i
+                                        className="fas fa-star text-yellow-400 text-lg mr-1 "
+                                        title="Rating"
+                                    ></i>
+                                    {movie.vote_average}
+                                </div>
+                                <div className="card-actions flex justify-between items-center gap-11">
+                                    <button
+                                        className="middle none center flex items-center justify-center rounded-lg p-3 font-sans text-xs font-bold uppercase text-mb-quartery transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                        data-ripple-dark="true"
+                                    >
+                                        <i
+                                            className="fas fa-heart text-lg leading-none"
+                                            title="Add to My List"
+                                        ></i>{" "}
+                                    </button>
+                                    <Link
+                                        to={`/movies/${movie.id}`}
+                                        className="text-mb-secondary hover:text-mb-quartery"
+                                    >
+                                        See Details
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             ))}
         </div>
