@@ -4,6 +4,8 @@ import logo from "../assets/logo_new.png";
 import SearchIcon from "@mui/icons-material/Search";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Box, IconButton } from "@mui/material";
+import UserDropdown from "./UserDropdown";
+import Notifications from "./Notifications";
 
 const RegularHeader = () => {
     return (
@@ -24,20 +26,17 @@ const RegularHeader = () => {
                 </Link>
                 <ul className="text-mb-quartery flex gap-10 text-xl font-bold p-5 justify-center items-center">
                     <li>
-                        <NavLink to="/" className="nav-link">
-                            HOME
-                        </NavLink>
-                    </li>
-                    <li>
                         <NavLink to="/about" className="nav-link">
                             ABOUT
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/contact" className="nav-link">
+                        <NavLink to="/mylist" className="nav-link">
                             MY LIST
                         </NavLink>
                     </li>
+                </ul>
+                <div className="flex justify-center items-center">
                     <Box className="text-mb-quartery  justify-end items-end mx-14">
                         <IconButton
                             size="large"
@@ -55,7 +54,9 @@ const RegularHeader = () => {
                             <MoreIcon />
                         </IconButton>
                     </Box>
-                </ul>
+                    <Notifications />
+                    <UserDropdown />
+                </div>
             </nav>
         </>
     );

@@ -15,6 +15,7 @@ import { EffectCoverflow, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import Hero from "./Hero";
 import Discover from "./Discover";
+import { Spinner } from "@material-tailwind/react";
 
 const Movies = () => {
     const [movies, setMovies] = useState(null);
@@ -27,6 +28,10 @@ const Movies = () => {
             })
             .catch((e) => console.log(e));
     }, []);
+
+    if (!movies) {
+        return <Spinner className="h-16 w-16 text-mb-quartery" />;
+    }
 
     return (
         <>

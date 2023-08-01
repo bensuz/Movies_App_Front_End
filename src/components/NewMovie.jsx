@@ -13,6 +13,7 @@ const NewMovie = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault;
+        const { id } = useParams;
         axios
             .post(`${import.meta.env.VITE_SERVER_BASE_URL} / api / movies`, {
                 title,
