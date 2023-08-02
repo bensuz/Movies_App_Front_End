@@ -4,11 +4,12 @@ import "./movies.css";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Spinner, Button, Input } from "@material-tailwind/react";
 
 const MyList = () => {
     const [movies, setMovies] = useState(null);
+    const navigate = useNavigate();
     useEffect(() => {
         axios
             .get(`${import.meta.env.VITE_SERVER_BASE_URL}/api/movies`)
@@ -22,6 +23,10 @@ const MyList = () => {
     if (!movies) {
         return <Spinner className="h-16 w-16 text-mb-quartery" />;
     }
+
+    const handleAddMovie = () => {
+        navigate(`/movies/new`);
+    };
     return (
         <>
             <div className=" bg-slate-800 pt-[150px] flex flex-col justify-center items-center gap-20">
@@ -33,7 +38,7 @@ const MyList = () => {
                     />
                     <Button
                         size="sm"
-                        className="!absolute right-1 top-1 rounded bg-mb-primary text-mb-secondary font-bold h-9"
+                        className="!absolute right-1 top-1 rounded bg-mb-primary text-mb-secondary font-bold h-8"
                     >
                         Search
                     </Button>
@@ -76,7 +81,10 @@ const MyList = () => {
                 </div>
             </div>
             <div className=" bg-slate-800 flex justify-around pb-24 pt-10">
-                <button className=" rounded-xl bg-mb-quartery hover:bg-pink-800 text-white p-3 self-end ">
+                <button
+                    className=" rounded-xl bg-mb-quartery hover:bg-pink-800 text-white p-3 self-end "
+                    onClick={handleAddMovie}
+                >
                     <i
                         className="fas fa-heart text-lg leading-none mr-3"
                         title="Add to My List"

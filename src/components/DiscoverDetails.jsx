@@ -12,6 +12,7 @@ const DiscoverDetails = () => {
     const [year, setYear] = useState("");
     const [rating, setRating] = useState("");
     const [poster, setPoster] = useState("");
+    // eslint-disable-next-line no-unused-vars
     const [director, setDirector] = useState("");
 
     useEffect(() => {
@@ -29,7 +30,7 @@ const DiscoverDetails = () => {
                 );
                 console.log(parseInt(rating));
             } catch (error) {
-                console.error("Error fetching movie details:", error);
+                console.error("Error fetching movie details:", id);
                 setError(error);
             }
         };
@@ -66,7 +67,7 @@ const DiscoverDetails = () => {
     };
     return (
         <>
-            <div className="bg-[url('../assets/barbie.jpeg')] bg- py-[475px] h-72 w-3/5 mx-auto flex flex-col justify-center items-center  ">
+            <div className=" py-[475px] h-72 w-3/5 mx-auto flex flex-col justify-center items-center  ">
                 {error && <p>{error}</p>}
                 {movie && (
                     <>

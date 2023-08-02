@@ -22,6 +22,10 @@ const Discover = () => {
         fetchMovies();
     }, []);
 
+    const handleAddMovie = () => {
+        console.log("added to the list");
+    };
+
     return (
         <div className="card w-full shadow-xl text-white flex flex-wrap justify-center items-center my-3 gap-8 ">
             {publicMovies.map((movie) => (
@@ -37,7 +41,7 @@ const Discover = () => {
                             />
                         </figure>
                         <div className="card-body h-1/3 px-3 text-black flex flex-col justify-between items-start">
-                            <h2 className="card-title pt-2 text-lg font-medium text-slate-700 h-2/4">
+                            <h2 className="card-title pt-2 text-lg font-medium text-slate-700 h-2/4 overflow-hidden">
                                 {movie.title}
                             </h2>
                             <div className="h-2/4">
@@ -50,6 +54,7 @@ const Discover = () => {
                                 </div>
                                 <div className="card-actions flex justify-between items-center gap-11">
                                     <button
+                                        onClick={handleAddMovie}
                                         className="middle none center flex items-center justify-center rounded-lg p-3 font-sans text-xs font-bold uppercase text-mb-quartery transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                         data-ripple-dark="true"
                                     >
@@ -59,7 +64,7 @@ const Discover = () => {
                                         ></i>{" "}
                                     </button>
                                     <Link
-                                        to={`/movies/${movie.id}`}
+                                        to={`/movies/discover/${movie.id}`}
                                         className="text-mb-secondary hover:text-mb-quartery"
                                     >
                                         See Details

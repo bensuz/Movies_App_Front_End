@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const UpdateMovie = () => {
     const { id } = useParams();
@@ -27,7 +28,14 @@ const UpdateMovie = () => {
                 `${import.meta.env.VITE_SERVER_BASE_URL}/api/movies/${id}`,
                 movie
             )
-            .then((res) => navigate(`/movies/${id}`))
+            .then((res) => {
+                Swal.fire(
+                    "Updated!",
+                    "Movie has been updated on My List.",
+                    "success"
+                );
+                navigate(`/movies/${id}`);
+            })
             .catch((e) => console.log(e));
     };
 

@@ -48,7 +48,7 @@ const Notifications = () => {
                     </svg>
                 </IconButton>
             </MenuHandler>
-            <MenuList className="flex flex-col gap-2 z-50">
+            <MenuList className="flex flex-col gap-2 z-50 w-64 ">
                 <MenuItem className="flex items-center gap-4 py-2 pr-8 pl-2">
                     <Avatar
                         variant="circular"

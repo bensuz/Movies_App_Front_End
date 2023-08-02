@@ -24,19 +24,15 @@ const RegularHeader = () => {
                         </h2>
                     </div>
                 </Link>
-                <ul className="text-mb-quartery flex gap-10 text-xl font-bold p-5 justify-center items-center">
-                    <li>
-                        <NavLink to="/about" className="nav-link">
-                            ABOUT
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/mylist" className="nav-link">
-                            MY LIST
-                        </NavLink>
-                    </li>
-                </ul>
+
                 <div className="flex justify-center items-center">
+                    <ul className="text-mb-quartery flex gap-10 text-xl font-bold p-5 justify-center items-center">
+                        <li>
+                            <NavLink to="/mylist" className="nav-link">
+                                MY LIST
+                            </NavLink>
+                        </li>
+                    </ul>
                     <Box className="text-mb-quartery  justify-end items-end mx-14">
                         <IconButton
                             size="large"
