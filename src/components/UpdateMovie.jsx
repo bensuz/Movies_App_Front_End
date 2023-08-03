@@ -19,6 +19,7 @@ const UpdateMovie = () => {
                 console.log(res.data);
             })
             .catch((e) => setError(e.response?.data?.message));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleSubmit = (e) => {
